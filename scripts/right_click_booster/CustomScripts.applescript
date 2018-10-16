@@ -12,6 +12,6 @@ end open_in_terminal_window
 on open_in_sublime(dir)
 	set p to (dir as text)
 	tell application "Terminal"
-		do script "open " & quoted form of p
+		do script "subl " & quoted form of p
 	end tell
 end open_in_sublime
