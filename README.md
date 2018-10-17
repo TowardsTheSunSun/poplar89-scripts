@@ -9,3 +9,5 @@
     在终端窗口中打开当前目录。
 ### open_in_sublime
     在Sublime Text中打开文件，如选择对象为目录，则点击无效。
+### Simple Http Server
+    在当前目录打开python的SimpleHTTPServer
