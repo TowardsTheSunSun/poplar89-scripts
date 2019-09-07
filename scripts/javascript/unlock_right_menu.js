@@ -1,0 +1,2 @@
+//在浏览器里新建一个书签，把下面的代码贴在“网址”处。遇到限制右键、限制复制页面内容的网页，点一下这个书签即可解除限制。
+javascript:(function() { function R(a){ona = "on"+a; if(window.addEventListener) window.addEventListener(a, function (e) { for(var n=e.originalTarget; n; n=n.parentNode) n[ona]=null; }, true); window[ona]=null; document[ona]=null; if(document.body) document.body[ona]=null; } R("contextmenu"); R("click"); R("mousedown"); R("mouseup"); R("selectstart");})()
