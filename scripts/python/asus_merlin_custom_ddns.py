@@ -3,6 +3,7 @@
 import json
 import sys
 
+import time
 from aliyunsdkalidns.request.v20150109 import DescribeDomainRecordInfoRequest, UpdateDomainRecordRequest
 from aliyunsdkcore.client import AcsClient
 from aliyunsdkecs.request.v20140526 import DescribeSecurityGroupAttributeRequest, RevokeSecurityGroupEgressRequest, \
@@ -55,8 +56,8 @@ def updateRecord(record):
 def execDdns(ip):
     record = descRecord(RECORDID)
     record['Value']=ip
-    result = updateRecord(record)
-    print('update record success: ', result)
+    updateRecord(record)
+    print(time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()), ' - ', 'Update Record Success')
 
 
 def descSecurityGroup(groupId):
@@ -120,21 +121,24 @@ def execAuth(ip):
     permissions = securityGroup['Permissions']['Permission']
     for permission in permissions:
         if permission['Direction'] == 'ingress':
-            result = revokeIngress(securityGroup['SecurityGroupId'], permission)
-            print('revoke ingress permission success: ', result)
+            revokeIngress(securityGroup['SecurityGroupId'], permission)
+            print(time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()), ' - ', 'Revoke Ingress Permission Success')
         else:
-            result = revokeEgress(securityGroup['SecurityGroupId'], permission)
-            print('revoke egress permission success: ', result)
+            revokeEgress(securityGroup['SecurityGroupId'], permission)
+            print(time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()), ' - ', 'Revoke Egress Permission Success')
 
-    result = authIngress(securityGroup['SecurityGroupId'], ip)
-    print('auth ingress permission success: ', result)
-    result = authEgress(securityGroup['SecurityGroupId'], ip)
-    print('auth egress permission success: ', result)
+    authIngress(securityGroup['SecurityGroupId'], ip)
+    print(time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()), ' - ', 'Auth Ingress Permission Success')
+    authEgress(securityGroup['SecurityGroupId'], ip)
+    print(time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()), ' - ', 'Auth Egress Permission Success')
 
 # main
 try:
+    print(time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()), ' - ', 'Dynamic DNS Start.')
+    print(time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()), ' - ', 'IP Address is ', IP)
     execDdns(IP)
     execAuth(IP)
+    print(time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()), ' - ', 'Dynamic DNS End.')
 except BaseException as e:
     print(e.message)
     sys.exit(-1)
