@@ -135,7 +135,7 @@ def execAuth(ip):
 # main
 try:
     print(time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()), ' - ', '#####  Dynamic DNS Start  #####')
-    print(time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()), ' - ', 'IP Address is ', IP)
+    print(time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()), ' - ', 'IP Address is', IP)
     execDdns(IP)
     execAuth(IP)
     print(time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()), ' - ', '#####  Dynamic DNS End  #####')
