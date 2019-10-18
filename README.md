@@ -22,6 +22,7 @@
 #!/bin/sh
 PATH=/jffs/scripts/
 LOGPATH=/opt/var/log/ddns.log
+COMMAND=exec
 
 ACCESSKEY=''
 SECRET=''
@@ -29,7 +30,7 @@ ENDPOINT=''
 RECORDID=''
 GROUPID=''
 
-/opt/bin/python $PATH/aliddns.py $ACCESSKEY $SECRET $ENDPOINT $RECORDID $GROUPID $* >> $LOGPATH 2>&1
-#/sbin/ddns_custom_updated $?
+/opt/bin/python $PATH/aliddns.py $COMMAND $ACCESSKEY $SECRET $ENDPOINT $RECORDID $GROUPID $* >> $LOGPATH 2>
+/sbin/ddns_custom_updated $?
 ```
 4. Merlin 对 Custom DDNS 的说明见 https://github.com/RMerl/asuswrt-merlin/wiki/Custom-DDNS
