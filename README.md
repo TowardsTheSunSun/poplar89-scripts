@@ -17,6 +17,7 @@
 使用 python 实现的 ddns，基于阿里云，并实现了自动堆 ECS 授权该 ip 的网络安全组访问
 1. 首先安装 Entware
 2. 通过 opkg 安装 python3（python2.7 中安装阿里云 API SDK 时发生错误，本人未深入探索）
+3. 依赖于阿里云 python SDK，组件包括aliyun-python-sdk-core、aliyun-python-sdk-alidns、aliyun-python-sdk-ecs
 3. 开启 jffs，并且在 /jffs/scripts 下创建 ddns_start 脚本，样例内容如下：
 ```shell
 #!/bin/sh
