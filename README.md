@@ -18,7 +18,7 @@
 1. 首先安装 Entware
 2. 通过 opkg 安装 python3（python2.7 中安装阿里云 API SDK 时发生错误，本人未深入探索）
 3. 依赖于阿里云 python SDK，组件包括aliyun-python-sdk-core、aliyun-python-sdk-alidns、aliyun-python-sdk-ecs，可通过 pip 安装
-3. 开启 jffs，并且在 /jffs/scripts 下创建 ddns_start 脚本，样例内容如下：
+4. 开启 jffs，并且在 /jffs/scripts 下创建 ddns-start 脚本，样例内容如下：
 ```shell
 #!/bin/sh
 PATH=/jffs/scripts/
