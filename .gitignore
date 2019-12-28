@@ -1,2 +1,5 @@
 # Created by .ignore support plugin (hsz.mobi)
 .idea
+
+# MacOS Ignore Files
+.DS_Store
