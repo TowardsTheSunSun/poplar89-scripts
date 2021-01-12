@@ -36,6 +36,7 @@
 function loadItems(){
     var speed = document.getElementById("loadSpeedText").value;
     var i = 0;
+    //可以加大跳转幅度
     var interval = window.setInterval(function(){
         i++;
         var beforeScrollY = window.scrollY;
@@ -47,13 +48,6 @@ function loadItems(){
             return
         }
     }, speed)
-}
-
-function sleep(millis){
-    var startTime = new Date().getTime()
-    while(new Date().getTime() - startTime < millis){
-    }
-    console.log("sleep "+millis)
 }
 
 function filterZiying(){
